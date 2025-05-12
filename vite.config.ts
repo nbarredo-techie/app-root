@@ -1,7 +1,22 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react-swc'
+import { defineConfig } from 'vite';
+import singleSpa from 'vite-plugin-single-spa';
 
-// https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
-})
+  plugins: [
+    singleSpa({
+      orgName: 'mf',
+      projectName: 'root-config',
+    }),
+  ],
+  build: {
+    target: 'esnext',
+    modulePreload: false,
+    rollupOptions: {
+      output: {
+        format: 'system',
+        entryFileNames: 'root-config.js',
+      },
+    },
+  },
+  assetsInclude: ['**/*.html'],
+});

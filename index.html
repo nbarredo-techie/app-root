@@ -1,13 +1,17 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
+    <script type="systemjs-importmap">
+      {
+        "imports": {
+          "@mf/dashboard": "//localhost:5001/mf-dashboard.js",
+          "@mf/admin": "//localhost:5002/mf-admin.js"
+        }
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/system.min.js"></script>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <script type="module" src="/src/root-config.ts"></script>
   </body>
 </html>
