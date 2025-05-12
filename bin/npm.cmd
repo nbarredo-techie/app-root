@@ -1,0 +1,3 @@
+@echo off
+echo  Redirecting to pnpm...
+pnpm %*
