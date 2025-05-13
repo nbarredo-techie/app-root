@@ -12,5 +12,5 @@ export default defineConfig({
     modulePreload: false,
     
   },
-  assetsInclude: ['**/*.html'],
+ 
 });
