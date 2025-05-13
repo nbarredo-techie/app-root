@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      import-map-overrides:
+        specifier: ^6.0.0
+        version: 6.0.0
       react:
         specifier: ^19.1.0
         version: 19.1.0
@@ -624,6 +627,10 @@ packages:
     resolution: {integrity: sha512-yki5XnKuf750l50uGTllt6kKILY4nQ1eNIQatoXEByZ5dWgnKqbnqmTrBE5B4N7lrMJKQ2ytWMiTO2o0v6Ew/w==}
     engines: {node: '>= 0.6'}
 
+  cookie@1.0.2:
+    resolution: {integrity: sha512-9Kr/j4O16ISv8zBBhJoi4bXOYNTkFLOqSL3UDB0njXxCXNezjeyVrJyGOWtgfs/q2km1gwBcfH8q1yEGoMYunA==}
+    engines: {node: '>=18'}
+
   cors@2.8.5:
     resolution: {integrity: sha512-KIHbLJqu73RGr/hnbrO9uBeixNGuvSQjul/jdFvS/KFSIH1hWVd1ng7zOHx+YrEfInLG7q4n6GHQ9cDtxv/P6g==}
     engines: {node: '>= 0.10'}
@@ -891,6 +898,9 @@ packages:
   import-fresh@3.3.1:
     resolution: {integrity: sha512-TR3KfrTZTYLPB6jUjfx6MF9WcWrHL9su5TObK4ZkYgBdWKPOFoSoQIdEuTuR82pmtxH2spWG9h6etwfr1pLBqQ==}
     engines: {node: '>=6'}
+
+  import-map-overrides@6.0.0:
+    resolution: {integrity: sha512-VZA0pKHRKWeoJNIC/+6fNulwwnZQ9hXj4hXL3zu+GFTrArkOpEiNcpfO240RxIoI5X0bvofXs5va1JYOKouVGA==}
 
   imurmurhash@0.1.4:
     resolution: {integrity: sha512-JmXMZ6wuvDmLiHEml9ykzqO6lwFbof0GG4IkcGaENdCRDDmMVnny7s5HsIgHCbaq0w2MyPhDqkhTUgS2LU2PHA==}
@@ -1776,6 +1786,8 @@ snapshots:
 
   cookie@0.7.2: {}
 
+  cookie@1.0.2: {}
+
   cors@2.8.5:
     dependencies:
       object-assign: 4.1.1
@@ -2094,6 +2106,10 @@ snapshots:
     dependencies:
       parent-module: 1.0.1
       resolve-from: 4.0.0
+
+  import-map-overrides@6.0.0:
+    dependencies:
+      cookie: 1.0.2
 
   imurmurhash@0.1.4: {}
 
