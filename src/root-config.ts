@@ -1,6 +1,6 @@
 import { registerApplication, start } from 'single-spa';
-import { constructRoutes, constructApplications } from '@single-spa/layout';
-import { constructLayoutEngine } from '@single-spa/layout';
+import { constructRoutes, constructApplications } from 'single-spa-layout';
+import { constructLayoutEngine } from 'single-spa-layout';
 
 import layoutDefinition from './root-layout.html?raw';
 

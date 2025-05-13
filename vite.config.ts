@@ -4,8 +4,7 @@ import singleSpa from 'vite-plugin-single-spa';
 export default defineConfig({
   plugins: [
     singleSpa({
-      orgName: 'mf',
-      projectName: 'root-config',
+      type: 'root'
     }),
   ],
   build: {
