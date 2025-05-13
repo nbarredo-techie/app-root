@@ -10,12 +10,7 @@ export default defineConfig({
   build: {
     target: 'esnext',
     modulePreload: false,
-    rollupOptions: {
-      output: {
-        format: 'system',
-        entryFileNames: 'root-config.js',
-      },
-    },
+    
   },
   assetsInclude: ['**/*.html'],
 });
