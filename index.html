@@ -21,13 +21,17 @@
 
   <body>
     <script>
-      window.addEventListener('DOMContentLoaded', () => {
-        if (window.importMapOverrides) {
+      const ensureOverridesLoaded = () => {
+        if (window.importMapOverrides?.showSelector) {
           importMapOverrides.showSelector();
           console.log('Overrides:', importMapOverrides.getOverrideMap());
+        } else {
+          setTimeout(ensureOverridesLoaded, 50); // try again shortly
         }
-      });
+      };
+      ensureOverridesLoaded();
     </script>
+    
 
     <!-- Explicitly boot Single-spa -->
     <script type="module">
