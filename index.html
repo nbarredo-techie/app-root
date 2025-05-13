@@ -1,26 +1,36 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8" />
+    <title>App Root</title>
+
+    <!-- Import map (must be early) -->
     <script type="systemjs-importmap">
       {
         "imports": {
           "@mf/shell": "http://localhost:5173/mf-shell.js",
-          "@shared-ui/theme": "https://happy-mud-059c27f10.6.azurestaticapps.net/remoteEntry.js"  
+          "@shared-ui/theme": "https://happy-mud-059c27f10.6.azurestaticapps.net/remoteEntry.js"
         }
       }
     </script>
+
+    <!-- Load SystemJS -->
     <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/system.min.js"></script>
+
+    <!-- Load full version of import-map-overrides -->
     <script src="https://unpkg.com/import-map-overrides@2.1.0/dist/import-map-overrides.full.js"></script>
+  </head>
+
+  <body>
     <script>
-      importMapOverrides.getOverrideMap().then(map => {
-        console.log('Active import map overrides:', map);
+      // Wait until the override library is loaded
+      window.addEventListener('DOMContentLoaded', () => {
+        importMapOverrides.showSelector();
+        console.log('Overrides:', importMapOverrides.getOverrideMap());
       });
     </script>
-     <script>
-      importMapOverrides.showSelector();
-    </script>
-  </head>
-  <body>
+
+    <!-- Start your root-config -->
     <script type="module" src="/src/root-config.ts"></script>
   </body>
 </html>
