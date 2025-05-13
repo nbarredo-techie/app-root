@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <title>App Root</title>
 
-    <!-- Import map (must be early) -->
+    <!-- Import map -->
     <script type="systemjs-importmap">
       {
         "imports": {
@@ -14,23 +14,24 @@
       }
     </script>
 
-    <!-- Load SystemJS -->
+    <!-- External scripts -->
     <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/system.min.js"></script>
-
-    <!-- Load full version of import-map-overrides -->
     <script src="https://unpkg.com/import-map-overrides@2.1.0/dist/import-map-overrides.full.js"></script>
   </head>
 
   <body>
     <script>
-      // Wait until the override library is loaded
       window.addEventListener('DOMContentLoaded', () => {
-        importMapOverrides.showSelector();
-        console.log('Overrides:', importMapOverrides.getOverrideMap());
+        if (window.importMapOverrides) {
+          importMapOverrides.showSelector();
+          console.log('Overrides:', importMapOverrides.getOverrideMap());
+        }
       });
     </script>
 
-    <!-- Start your root-config -->
-    <script type="module" src="/src/root-config.ts"></script>
+    <!-- Explicitly boot Single-spa -->
+    <script type="module">
+      import '/src/root-config.ts';
+    </script>
   </body>
 </html>
