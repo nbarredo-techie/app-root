@@ -1,6 +1,0 @@
-{
-    "imports": {
-      "@mf/shell": "http://localhost:5003/mf-shell.js",
-      "@shared-ui/theme": "https://happy-mud-059c27f10.6.azurestaticapps.net/remoteEntry.js"
-    }
-  }
