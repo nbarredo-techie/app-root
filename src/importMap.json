@@ -6,6 +6,6 @@
     "tailwindcss": "https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4",   
     
     "@mf/shell": "https://terrabostmanagestorage.blob.core.windows.net/$web/mf-shell/main.js",
-    "shared-ui": "https://terrabostmanagestorage.blob.core.windows.net/$web/shared-ui/shared-ui.umd.js"
+    "shared-ui": "https://terrabostmanagestorage.blob.core.windows.net/$web/shared-ui/shared-ui.system.js"
   }
 }
