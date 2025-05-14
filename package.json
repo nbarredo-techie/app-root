@@ -11,14 +11,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@originjs/vite-plugin-federation": "^1.4.1",
     "@tailwindcss/vite": "^4.1.6", 
     "import-map-overrides": "^6.0.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "single-spa": "^6.0.3",
-    "single-spa-layout": "^3.0.0", 
-    "vite-plugin-federation": "github:originjs/vite-plugin-federation"
+    "single-spa-layout": "^3.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",

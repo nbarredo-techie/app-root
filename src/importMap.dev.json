@@ -10,6 +10,6 @@
 
     
     "@mf/shell": "https://terrabostmanagestorage.blob.core.windows.net/$web/mf-shell/main.js",
-    "shared_ui/": "https://terrabostmanagestorage.blob.core.windows.net/$web/shared-ui/"
+   "shared-ui": "https://terrabostmanagestorage.blob.core.windows.net/$web/shared-ui/shared-ui.umd.js"
   }
 }
