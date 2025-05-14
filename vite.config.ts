@@ -20,7 +20,32 @@ export default defineConfig({
     remotes: {
       shared_ui: 'https://terrabostmanagestorage.blob.core.windows.net/$web/shared-ui/remoteEntry.js', // Update URL to match your deployment
     },
-    shared: ['react', 'react-dom']
+    shared: {
+      react: { 
+        requiredVersion: '^19.0.0',
+        import: false
+      },
+      'react-dom': { 
+        requiredVersion: '^19.0.0',
+        import: false
+      }, 
+      'tailwindcss': {
+        requiredVersion: '^4.0.0',
+        import: false
+      },
+      'class-variance-authority': {
+        requiredVersion: '^0.7.0',
+        import: false
+      },
+      'clsx': {
+        requiredVersion: '^2.0.0',
+        import: false
+      },
+      'tailwind-merge': {
+        requiredVersion: '^3.0.0',
+        import: false
+      }
+    }
   })],
   build: {
     target: 'esnext',
