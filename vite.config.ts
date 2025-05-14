@@ -6,6 +6,7 @@ export default defineConfig({
     singleSpa({
       type: 'root',
       imo:true,
+      imoUi: 'full' ,
       importMaps: { 
         dev:  'src/importMap.dev.json',
         build:'src/importMap.json'

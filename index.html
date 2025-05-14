@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Microfrontend Root</title>
+  <meta charset="UTF-8" />
+  <title>Root App</title>
+  
 </head>
 <body>
-  <div id="root"></div>
- 
-  <!-- Your Vite bootstrapped root-config -->
+  <!-- Layout definition -->
+  <single-spa-router>
+    <route path="/">
+      <application name="@mf/shell"></application>
+    </route>
+  </single-spa-router>
+  <import-map-overrides-full show-when-local-storage="overrides-ui"></import-map-overrides-full>
+
+
+  <!-- Bootstrap -->
   <script type="module" src="/src/root-config.ts"></script>
 </body>
 </html>
