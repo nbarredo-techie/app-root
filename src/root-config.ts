@@ -3,7 +3,10 @@ import { constructRoutes, constructApplications } from 'single-spa-layout';
 import { constructLayoutEngine } from 'single-spa-layout';
 
 import layoutDefinition from './root-layout.html?raw';
-
+// Import the shared theme
+System.import('shared_ui/theme').then(() => {
+  console.log('Shared UI theme loaded');
+});
 const routes = constructRoutes(layoutDefinition);
 const applications = constructApplications({
   routes,
