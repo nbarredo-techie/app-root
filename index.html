@@ -1,25 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>App Root</title> 
-    <!-- External scripts --> 
-
-    <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/system.min.js"></script>
-    <script  type="module">
-      import "import-map-overrides"; 
-    </script>
-    <import-map-overrides-full
-    show-when-local-storage="devtools"
-  ></import-map-overrides-full>
-  </head>
-
-  <body> 
-    <div id="root"></div>
-
-    <!-- Explicitly boot Single-spa -->
-    <script type="module">
-      import '/src/root-config.ts';
-    </script>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <title>Microfrontend Root</title>
+</head>
+<body>
+  <div id="root"></div>
+ 
+  <!-- Your Vite bootstrapped root-config -->
+  <script type="module" src="/src/root-config.ts"></script>
+</body>
 </html>

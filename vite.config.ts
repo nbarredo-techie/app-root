@@ -5,6 +5,7 @@ export default defineConfig({
   plugins: [
     singleSpa({
       type: 'root',
+      imo:true,
       importMaps: { 
         dev:  'src/importMap.dev.json',
         build:'src/importMap.json'
