@@ -1,0 +1,7 @@
+{
+    "imports": {
+      "@mf/shell": "http://localhost:5173/src/root.component.tsx",
+      "@shared-ui/theme": "https://happy-mud-...azurestaticapps.net/remoteEntry.js"
+    }
+  }
+  

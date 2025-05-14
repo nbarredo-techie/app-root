@@ -7,32 +7,14 @@
     <script type="systemjs-importmap" id="mf-importmap">
     </script>
     
-    <script>
-      const imports = {
-        "@mf/shell": "http://localhost:5173/mf-shell.js",
-        "@shared-ui/theme": "https://happy-mud-059c27f10.6.azurestaticapps.net/remoteEntry.js"
-      };
-      document.getElementById("mf-importmap").textContent = JSON.stringify({ imports });
-    </script>
+    
     
     <!-- External scripts -->
     <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/system.min.js"></script>
     <script src="https://unpkg.com/import-map-overrides@2.1.0/dist/import-map-overrides.full.js"></script>
   </head>
 
-  <body>
-    <script>
-      const ensureOverridesLoaded = () => {
-        if (window.importMapOverrides?.showSelector) {
-          importMapOverrides.showSelector();
-          console.log('Overrides:', importMapOverrides.getOverrideMap());
-        } else {
-          setTimeout(ensureOverridesLoaded, 50); // try again shortly
-        }
-      };
-      ensureOverridesLoaded();
-    </script>
-    
+  <body> 
 
     <!-- Explicitly boot Single-spa -->
     <script type="module">

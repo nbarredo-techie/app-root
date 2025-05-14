@@ -4,7 +4,10 @@ import singleSpa from 'vite-plugin-single-spa';
 export default defineConfig({
   plugins: [
     singleSpa({
-      type: 'root'
+      type: 'root',
+      importMaps: { 
+        build:'src/importMap.json'
+      }
     }),
   ],
   build: {
