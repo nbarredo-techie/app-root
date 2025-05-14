@@ -1,6 +1,6 @@
 {
     "imports": {
-      "@mf/shell": "http://localhost:5173/src/root.component.tsx",
+      "@mf/shell": "https://purple-desert-06fe78d10.6.azurestaticapps.net/root.component.tsx",
       "@shared-ui/theme": "https://happy-mud-...azurestaticapps.net/remoteEntry.js"
     }
   }
