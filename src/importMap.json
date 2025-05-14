@@ -1,6 +1,6 @@
 {
   "imports": {
-    "@mf/shell": "https://terrabostmanagestorage.blob.core.windows.net/$web/mf-shell/root.component.js",
+    "@mf/shell": "https://terrabostmanagestorage.blob.core.windows.net/$web/mf-shell/main.js",
     "@shared-ui/theme": "https://happy-mud-abc123.azurestaticapps.net/remoteEntry.js"
   }
 }
