@@ -9,7 +9,7 @@ console.log("root-config loaded");
 const routes = constructRoutes(layoutDefinition);
 const applications = constructApplications({
   routes,
-  loadApp: ({ name }) => System.import(name),
+  loadApp: ({ name }) => System.import(/* @vite-ignore */ name),
 });
 const layoutEngine = constructLayoutEngine({ routes, applications });
 
