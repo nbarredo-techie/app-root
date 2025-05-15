@@ -1,24 +1,35 @@
-import { registerApplication, start } from 'single-spa';
+import { registerApplication, start, getMountedApps } from 'single-spa';
 import { constructRoutes, constructApplications } from 'single-spa-layout';
 import { constructLayoutEngine } from 'single-spa-layout';
-import { getMountedApps } from 'single-spa';
 
 import layoutDefinition from './root-layout.html?raw';
- 
-console.log("root-config loaded");
+
+console.log('root-config loaded');
 const routes = constructRoutes(layoutDefinition);
+console.log('routes constructed', routes);
 const applications = constructApplications({
   routes,
-  loadApp: ({ name }) => System.import(/* @vite-ignore */ name),
+  loadApp: ({ name }) => {
+    console.log('Attempting to load app:', name);
+    return System.import(name).then(mod => {
+      console.log('Loaded module for', name, mod);
+      return mod;
+    });
+  },
 });
+console.log('applications constructed', applications);
 const layoutEngine = constructLayoutEngine({ routes, applications });
 
-applications.forEach(registerApplication);
-console.log("applications registered", applications);
+applications.forEach(app => {
+  console.log('Registering application:', app);
+  registerApplication(app);
+});
 
 layoutEngine.activate();
+console.log('Layout engine activated');
 start();
+console.log('single-spa started');
 
 setTimeout(() => {
-  console.log("Mounted apps:", getMountedApps());
+  console.log('Mounted apps after 2s:', getMountedApps());
 }, 2000);
