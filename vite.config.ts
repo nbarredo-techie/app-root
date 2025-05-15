@@ -18,10 +18,21 @@ export default defineConfig({
     target: 'esnext',
     modulePreload: false,
     rollupOptions: {
+      input: {
+        index: './index.html',
+        'root-config': './src/root-config.ts'
+      },
       output: {
         format: 'system',
-        entryFileNames: '[name].js'
-      }
+        entryFileNames: '[name].js',
+        assetFileNames: 'assets/[name][ext]',
+        globals: {
+          'single-spa': 'singleSpa',
+          'single-spa-layout': 'singleSpaLayout'
+        }
+      },
+      preserveEntrySignatures: 'strict',
+			external: ['single-spa', 'single-spa-layout']
     }
   },
   optimizeDeps: {
