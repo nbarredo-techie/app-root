@@ -17,10 +17,7 @@ export default defineConfig({
   build: {
     target: 'esnext',
     modulePreload: false,
-    rollupOptions: {
-      input: {
-        index: './index.html' 
-      },
+    rollupOptions: { 
       output: {
         format: 'system',
         entryFileNames: '[name].js',
