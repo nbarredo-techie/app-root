@@ -4,7 +4,7 @@ import { constructLayoutEngine } from 'single-spa-layout';
 
 import layoutDefinition from './root-layout.html?raw';
  
- 
+console.log("root-config loaded");
 const routes = constructRoutes(layoutDefinition);
 const applications = constructApplications({
   routes,
@@ -13,6 +13,7 @@ const applications = constructApplications({
 const layoutEngine = constructLayoutEngine({ routes, applications });
 
 applications.forEach(registerApplication);
+console.log("applications registered", applications);
 
 layoutEngine.activate();
 start();
