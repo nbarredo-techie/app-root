@@ -13,7 +13,8 @@ const applications = constructApplications({
     console.log('Attempting to load app:', name);
     return System.import(name).then(mod => {
       console.log('Loaded module for', name, mod);
-      return mod;
+      // If the module has a default export, return that, otherwise return the module itself
+      return mod?.default ?? mod;
     });
   },
 });

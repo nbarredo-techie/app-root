@@ -19,8 +19,7 @@ export default defineConfig({
     modulePreload: false,
     rollupOptions: {
       input: {
-        index: './index.html',
-        'root-config': './src/root-config.ts'
+        index: './index.html' 
       },
       output: {
         format: 'system',
