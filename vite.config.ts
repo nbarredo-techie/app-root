@@ -18,6 +18,9 @@ export default defineConfig({
     target: 'esnext',
     modulePreload: false,
     rollupOptions: { 
+      input: {
+        bootstrap: './src/bootstrap.js'
+      },
       output: {
         format: 'system',
         entryFileNames: '[name].js',
@@ -28,7 +31,7 @@ export default defineConfig({
         }
       },
       preserveEntrySignatures: 'strict',
-			external: ['single-spa', 'single-spa-layout']
+      external: ['single-spa', 'single-spa-layout']
     }
   },
   optimizeDeps: {
