@@ -5,7 +5,7 @@
     "single-spa": "https://cdnjs.cloudflare.com/ajax/libs/single-spa/6.0.3/es5/system/single-spa.min.js",
     "tailwindcss": "https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4",   
     
-    "@mf/shell": "https://terrabostmanagestorage.blob.core.windows.net/$web/mf-shell/main.js",
+    "@mf/shell": "https://terrabostmanagestorage.blob.core.windows.net/$web/mf-shell/mf-shell.js",
     "shared-ui": "https://terrabostmanagestorage.blob.core.windows.net/$web/shared-ui/shared-ui.js"
   }
 }

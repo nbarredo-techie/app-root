@@ -17,7 +17,16 @@ export default defineConfig({
   build: {
     target: 'esnext',
     modulePreload: false,
-    
+    rollupOptions: {
+      output: {
+        format: 'system',
+        entryFileNames: '[name].js'
+      }
+    }
   },
- 
+  optimizeDeps: {
+    esbuildOptions: {
+      target: 'esnext'
+    }
+  }
 });
