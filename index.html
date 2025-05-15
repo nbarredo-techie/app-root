@@ -4,16 +4,10 @@
   <meta charset="UTF-8" />
   <title>Root App</title>
   <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/system.min.js"></script>
-
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/import-map-overrides@latest/dist/import-map-overrides.js"></script>
 </head>
 <body>
-  <!-- Layout definition -->
-  <single-spa-router>
-    <route path="/">
-      <application name="@mf/shell"></application>
-    </route>
-  </single-spa-router>
-
+  <import-map-overrides-full show-when-local-storage="overrides-ui"></import-map-overrides-full>
   <!-- Bootstrap -->
   <script type="module" src="/src/root-config.ts"></script>
 </body>
