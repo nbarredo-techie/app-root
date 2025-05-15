@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import singleSpa from 'vite-plugin-single-spa';
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 export default defineConfig({
   plugins: [
@@ -12,6 +13,11 @@ export default defineConfig({
         dev: 'src/importMap.dev.json',
         build: 'src/importMap.json'
       }
+    }),
+    viteStaticCopy({
+      targets: [
+        { src: 'index.html', dest: '.' }
+      ]
     })
   ],
   build: {
