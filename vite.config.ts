@@ -1,10 +1,10 @@
 import { defineConfig } from 'vite';
-import singleSpa from 'vite-plugin-single-spa';
+import vitePluginSingleSpa  from 'vite-plugin-single-spa';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 export default defineConfig({
   plugins: [
-    singleSpa({
+    vitePluginSingleSpa({
       type: 'root',
       importMaps:{
         type: 'systemjs-importmap',
