@@ -3,9 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>Root App</title>
-
-  <!-- Script for import-map-overrides - LOAD THIS FIRST -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/import-map-overrides@latest/dist/import-map-overrides.js"></script>
+ 
 
   <!-- Define import map - AFTER import-map-overrides.js, BEFORE system.js -->
   <script type="systemjs-importmap" id="importmap">
@@ -15,8 +13,7 @@
         "react-dom": "https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js",
         "react-dom/client": "https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js",
         "single-spa": "https://cdnjs.cloudflare.com/ajax/libs/single-spa/6.0.3/es5/system/single-spa.min.js",
-        "single-spa-layout": "https://cdn.jsdelivr.net/npm/single-spa-layout@3.0.0/dist/system/single-spa-layout.min.js",
-        "import-map-overrides": "https://cdn.jsdelivr.net/npm/import-map-overrides@5.0.0/dist/import-map-overrides.js",
+        "single-spa-layout": "https://cdn.jsdelivr.net/npm/single-spa-layout@3.0.0/dist/system/single-spa-layout.min.js", 
         
         "@mf/shell": "https://terrabostmanagestorage.blob.core.windows.net/$web/mf-shell/main.js",
         "shared-ui": "https://terrabostmanagestorage.blob.core.windows.net/$web/shared-ui/shared-ui.js"
@@ -29,9 +26,7 @@
   <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/extras/named-exports.min.js"></script>
  
 </head>
-<body>
-  <!-- Import Map Overrides UI -->
-  <import-map-overrides-full></import-map-overrides-full>
+<body> 
 
   <!-- Bootstrap AFTER overrides and SystemJS -->
   <script>
