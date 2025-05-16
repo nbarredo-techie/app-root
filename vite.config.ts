@@ -9,7 +9,7 @@ export default defineConfig({
       importMaps:{
         type: 'systemjs-importmap',
       },
-      imo: true,
+      imo: '6.0.0',
     }),
     viteStaticCopy({
       targets: [
