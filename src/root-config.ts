@@ -31,4 +31,13 @@ console.log('Layout engine activated');
 start();
 console.log('single-spa started');
 
+// ✅ Mount the import-map-overrides UI after apps are registered
+System.import('import-map-overrides').then((imo) => {
+  // Optional: sync current import map
+  imo.setOverrideMap(System.getImportMap().imports);
+
+  const el = document.createElement('import-map-overrides-full');
+  el.setAttribute('trigger-position', 'bottom-right');
+  document.body.appendChild(el);
+});
  
