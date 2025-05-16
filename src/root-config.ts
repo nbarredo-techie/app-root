@@ -30,21 +30,4 @@ layoutEngine.activate();
 console.log('Layout engine activated');
 start();
 console.log('single-spa started');
-
-// Programmatically interact with import-map-overrides if needed
-System.import('import-map-overrides').then((imo) => {
-  if (imo && imo.setOverrideMap && typeof System.getImportMap === 'function') {
-    console.log('Synchronizing import-map-overrides UI with current SystemJS import map.');
-    imo.setOverrideMap(System.getImportMap().imports);
-  } else {
-    console.warn('import-map-overrides API or System.getImportMap not available as expected.');
-  }
-  
-  // The element <import-map-overrides-full> is now in index.html
-  // const el = document.createElement('import-map-overrides-full');
-  // el.setAttribute('trigger-position', 'bottom-right');
-  // document.body.appendChild(el);
-  console.log('Import-map-overrides UI should be present from index.html.');
-  console.log('Current SystemJS Import map:', System.getImportMap ? System.getImportMap() : 'System.getImportMap not available');
-  console.log('Registered apps:', (window as any).singleSpa.getAppNames());
-});
+ 
