@@ -8,11 +8,7 @@ export default defineConfig({
       type: 'root',
       imo: true,
       imoUi: 'full',
-      importMaps: { 
-        type: 'systemjs-importmap',
-        dev: 'src/importMap.dev.json',
-        build: 'src/importMap.json'
-      }
+     
     }),
     viteStaticCopy({
       targets: [
