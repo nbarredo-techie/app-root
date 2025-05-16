@@ -4,12 +4,11 @@
   <meta charset="UTF-8" />
   <title>Root App</title>
 
-  <!-- Load SystemJS first -->
-  <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/system.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/extras/named-exports.min.js"></script>
+  <!-- Script for import-map-overrides - LOAD THIS FIRST -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/import-map-overrides@latest/dist/import-map-overrides.js"></script>
 
-  <!-- Define import map -->
-  <script type="systemjs-importmap">
+  <!-- Define import map - AFTER import-map-overrides.js, BEFORE system.js -->
+  <script type="systemjs-importmap" id="importmap">
     {
       "imports": {
         "react": "https://unpkg.com/react@18.3.1/umd/react.development.js",
@@ -24,10 +23,17 @@
       }
     }
   </script>
+
+  <!-- Load SystemJS - AFTER import map is defined and import-map-overrides is loaded -->
+  <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/system.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/extras/named-exports.min.js"></script>
  
 </head>
 <body>
-  <!-- Bootstrap AFTER overrides -->
+  <!-- Import Map Overrides UI -->
+  <import-map-overrides-full></import-map-overrides-full>
+
+  <!-- Bootstrap AFTER overrides and SystemJS -->
   <script>
     System.import('/bootstrap.js');
   </script>
