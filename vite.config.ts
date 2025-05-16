@@ -6,7 +6,10 @@ export default defineConfig({
   plugins: [
     singleSpa({
       type: 'root',
-      imo: '4.2.0'
+      importMaps:{
+        type: 'systemjs-importmap',
+      },
+      imo: true,
     }),
     viteStaticCopy({
       targets: [
