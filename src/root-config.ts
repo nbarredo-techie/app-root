@@ -31,6 +31,4 @@ console.log('Layout engine activated');
 start();
 console.log('single-spa started');
 
-setTimeout(() => {
-  console.log('Mounted apps after 2s:', getMountedApps());
-}, 2000);
+ 
