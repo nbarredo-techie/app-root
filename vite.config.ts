@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import vitePluginSingleSpa  from 'vite-plugin-single-spa';
- 
+import { viteStaticCopy } from 'vite-plugin-static-copy';
+
 export default defineConfig({
   plugins: [
     vitePluginSingleSpa({
@@ -10,7 +11,12 @@ export default defineConfig({
       },
       imo: '6.0.0',
       imoUi: 'full',
-    }) 
+    }),
+    viteStaticCopy({
+      targets: [
+        { src: 'index.html', dest: '.' }
+      ]
+    })
   ],
   build: {
     target: 'esnext',
