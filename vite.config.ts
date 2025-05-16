@@ -7,9 +7,10 @@ export default defineConfig({
     vitePluginSingleSpa({
       type: 'root',
       importMaps:{
-        type: 'systemjs-importmap',
+        type: 'overridable-importmap', // Changed from 'systemjs-importmap'
+        build: 'src/importMap.json'
       },
-      imo: '6.0.0',
+      imo: '6.0.0', // import-map-overrides version
       imoUi: 'full',
     }),
     viteStaticCopy({
@@ -26,13 +27,10 @@ export default defineConfig({
         bootstrap: './src/bootstrap.js'
       },
       output: {
-        format: 'system',
+        format: 'es', // Changed from 'system'
         entryFileNames: '[name].js',
         assetFileNames: 'assets/[name][ext]',
-        globals: {
-          'single-spa': 'singleSpa',
-          'single-spa-layout': 'singleSpaLayout'
-        }
+        // Removed globals section
       },
       preserveEntrySignatures: 'strict',
       external: ['single-spa', 'single-spa-layout']

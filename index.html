@@ -3,13 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <title>Root App</title>
-  
+ 
+  <!-- vite-plugin-single-spa will inject the import map and import-map-overrides -->
  
 </head>
 <body> 
- 
-  <script>
-    System.import('/bootstrap.js');
+
+  <!-- Bootstrap AFTER overrides -->
+  <script type="module">
+    System.import('./src/bootstrap.js'); // Ensure this path is correct for your setup
   </script>
 </body>
 </html>
