@@ -39,5 +39,8 @@ System.import('import-map-overrides').then((imo) => {
   const el = document.createElement('import-map-overrides-full');
   el.setAttribute('trigger-position', 'bottom-right');
   document.body.appendChild(el);
+  console.log('Attaching import-map-overrides UI');
+console.log('Import map:', System.getImportMap());
+console.log('Registered apps:', window.singleSpa.getAppNames());
 });
  
