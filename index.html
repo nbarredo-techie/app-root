@@ -7,20 +7,16 @@
   <!-- vite-plugin-single-spa will inject the native import map (from src/importMap.json) 
        and import-map-overrides script first in <head>. 
        This native import map is for ESM dependencies of the root application 
-       and also for SystemJS (v6+) to find the SystemJS microfrontends. -->
+       and for the ESM microfrontends. -->
 
-  <!-- Load SystemJS (v6+) - because microfrontends are SystemJS -->
-  <!-- SystemJS v6+ can consume native browser import maps. Ensure you use a v6+ URL. -->
-  <script src="https://cdn.jsdelivr.net/npm/systemjs@6.14.3/dist/system.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/systemjs@6.14.3/dist/extras/named-exports.min.js"></script>
-  <!-- Add other SystemJS extras like 'amd.min.js' or 'global.min.js' if your MFEs specifically require them -->
+  <!-- SystemJS scripts removed as microfrontends are now ESM -->
  
 </head>
 <body> 
   <script type="module">
     // bootstrap.js is an ES module (output from Vite build), so we import it as a standard ES module.
-    // Inside bootstrap.js (via root-config.ts), System.import() will be used to load 
-    // the SystemJS microfrontends. The SystemJS library loaded above will handle these calls.
+    // Inside bootstrap.js (via root-config.ts), dynamic import() will be used to load 
+    // the ESM microfrontends.
     import './src/bootstrap.js'; 
   </script>
 </body>

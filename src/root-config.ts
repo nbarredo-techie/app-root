@@ -11,7 +11,8 @@ const applications = constructApplications({
   routes,
   loadApp: ({ name }) => {
     console.log('Attempting to load app:', name);
-    return System.import(name).then(mod => {
+    // Changed from System.import(name) to native dynamic import()
+    return import(name).then(mod => {
       console.log('Loaded module for', name, mod);
       // If the module has a default export, return that, otherwise return the module itself
       return mod?.default ?? mod;
@@ -30,4 +31,3 @@ layoutEngine.activate();
 console.log('Layout engine activated');
 start();
 console.log('single-spa started');
- 
