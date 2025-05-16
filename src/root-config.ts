@@ -1,4 +1,4 @@
-import { registerApplication, start, getMountedApps } from 'single-spa';
+import { registerApplication, start } from 'single-spa';
 import { constructRoutes, constructApplications } from 'single-spa-layout';
 import { constructLayoutEngine } from 'single-spa-layout';
 
