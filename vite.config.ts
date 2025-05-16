@@ -5,9 +5,7 @@ import { viteStaticCopy } from 'vite-plugin-static-copy';
 export default defineConfig({
   plugins: [
     singleSpa({
-      type: 'root',
-      imo: true,
-      imoUi: 'full',
+      type: 'root' 
      
     }),
     viteStaticCopy({
