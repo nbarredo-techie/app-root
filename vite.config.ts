@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite';
 import vitePluginSingleSpa  from 'vite-plugin-single-spa';
-import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 export default defineConfig({
   plugins: [
@@ -13,27 +12,18 @@ export default defineConfig({
       imo: '6.0.0', // import-map-overrides version
       imoUi: 'full',
     }),
-    viteStaticCopy({
-      targets: [
-        { src: 'index.html', dest: '.' }
-      ]
-    })
   ],
   build: {
     target: 'esnext',
-    modulePreload: false,
     rollupOptions: { 
-      input: {
-        bootstrap: './src/bootstrap.js'
-      },
+      input: 'index.html', // Changed: index.html is now the main input
       output: {
-        format: 'es', // Changed from 'system'
-        entryFileNames: '[name].js',
+        format: 'es', 
+        entryFileNames: '[name].js', // This will apply to JS chunks, e.g., from bootstrap.js
         assetFileNames: 'assets/[name][ext]',
-        // Removed globals section
       },
       preserveEntrySignatures: 'strict',
-      external: ['single-spa', 'single-spa-layout']
+      external: ['single-spa', 'single-spa-layout'] // Keep this, it's important
     }
   },
   optimizeDeps: {
