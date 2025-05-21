@@ -19,14 +19,15 @@
         "single-spa": "https://esm.sh/single-spa@6.0.3?target=system",
         "single-spa-layout": "https://esm.sh/single-spa-layout@3.0.0?target=system",
         "shared-ui": "https://terrabostmanagestorage.blob.core.windows.net/$web/shared-ui/shared-ui.js",        
-        "@mf/shell": "https://terrabostmanagestorage.blob.core.windows.net/$web/mf-shell/main.js"
+        "@mf/shell": "https://terrabostmanagestorage.blob.core.windows.net/$web/mf-shell/mf-shell.js"
       }
     }
   </script>
   
-  <!-- Import Map Overrides -->
-  <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@3.0.1/dist/import-map-overrides.js"></script>
- 
+  <script src="
+https://cdn.jsdelivr.net/npm/import-map-overrides@6.0.0/dist/import-map-overrides.min.js
+"></script>
+
 </head>
 <body> 
   <import-map-overrides-full></import-map-overrides-full>
