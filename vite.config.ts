@@ -4,17 +4,18 @@ export default defineConfig({
   plugins: [
   ],
   build: {
-    target: 'esnext', // Or consider 'es2020' or older if SystemJS compatibility is an issue with very new features
+    target: 'esnext',
     rollupOptions: { 
-      input: 'index.html', 
+      input: 'src/root-config.ts', // Changed: Point to the actual entry file
       output: {
-        format: 'system', // Changed to SystemJS format
-        entryFileNames: '[name].js', 
+        format: 'system', 
+        entryFileNames: 'bootstrap.js', // Changed: Output file name
         assetFileNames: 'assets/[name][ext]',
       },
       preserveEntrySignatures: 'strict',
       external: ['single-spa', 'single-spa-layout'] 
-    }
+    },
+    outDir: 'dist' // Explicitly set or ensure it defaults to dist
   },
   optimizeDeps: {
     esbuildOptions: {
