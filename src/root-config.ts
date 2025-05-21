@@ -10,18 +10,27 @@ console.log('routes constructed', routes);
 const applications = constructApplications({
   routes,
   loadApp: ({ name }) => {
-    console.log('Attempting to load app:', name);
-    // Check if the URL is from a local Vite dev server
-    if (name.startsWith('http://localhost:')) {
-      console.log('Loading app via native import (dev):', name);
-      return import(name).then(mod => {
-        console.log('Loaded module for', name, mod);
+    console.log('Attempting to load app with specifier:', name);
+    let resolvedUrl;
+    try {
+      resolvedUrl = System.resolve(name); // Resolve the specifier to a URL
+    } catch (e) {
+      console.error(`Could not resolve import map for specifier: ${name}`, e);
+      return Promise.reject(e); // Fail if resolution doesn't work
+    }
+    console.log(`Resolved URL for ${name}: ${resolvedUrl}`);
+
+    // Check if the RESOLVED URL is from a local Vite dev server
+    if (resolvedUrl && resolvedUrl.startsWith('http://localhost:')) {
+      console.log('Loading app via native import (dev):', resolvedUrl);
+      return import(resolvedUrl).then(mod => { // Use the resolved URL for native dynamic import
+        console.log('Loaded module for', name, 'from', resolvedUrl, mod);
         return mod?.default ?? mod;
       });
     } else {
-      console.log('Loading app via System.import (prod):', name);
+      console.log('Loading app via System.import (prod):', name); // Use the original specifier for System.import
       return System.import(name).then(mod => {
-        console.log('Loaded module for', name, mod);
+        console.log('Loaded module for', name, 'from resolved URL', resolvedUrl, mod);
         // If the module has a default export, return that, otherwise return the module itself
         return mod?.default ?? mod;
       });
