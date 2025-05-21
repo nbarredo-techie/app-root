@@ -23,10 +23,30 @@ const applications = constructApplications({
     // Check if the RESOLVED URL is from a local Vite dev server
     if (resolvedUrl && resolvedUrl.startsWith('http://localhost:')) {
       console.log('Loading app via native import (dev):', resolvedUrl);
-      return import(resolvedUrl).then(mod => { // Use the resolved URL for native dynamic import
-        console.log('Loaded module for', name, 'from', resolvedUrl, mod);
-        return mod?.default ?? mod;
-      });
+
+      // Add diagnostic logging for the MFE response
+      return fetch(resolvedUrl)
+        .then(res => {
+          console.log(`MFE Response for ${name} (${resolvedUrl}):`);
+          console.log(`  Status: ${res.status}`);
+          console.log('  Headers:');
+          res.headers.forEach((value, key) => console.log(`    ${key}: ${value}`));
+          if (!res.ok) {
+            return res.text().then(text => {
+              console.error(`  Error fetching MFE: ${res.statusText}`, text);
+              throw new Error(`Failed to fetch MFE ${name}: ${res.statusText}`);
+            });
+          }
+          return res.text();
+        })
+        .then(text => {
+          console.log(`  First 500 chars of MFE text for ${name}:`, text.substring(0, 500));
+          // Now attempt the import
+          return import(/* @vite-ignore */ resolvedUrl).then(mod => { // Use the resolved URL for native dynamic import
+            console.log('Loaded module for', name, 'from', resolvedUrl, mod);
+            return mod?.default ?? mod;
+          });
+        });
     } else {
       console.log('Loading app via System.import (prod):', name); // Use the original specifier for System.import
       return System.import(name).then(mod => {
