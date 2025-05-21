@@ -11,12 +11,21 @@ const applications = constructApplications({
   routes,
   loadApp: ({ name }) => {
     console.log('Attempting to load app:', name);
-    // Changed from native dynamic import() to System.import()
-    return System.import(name).then(mod => {
-      console.log('Loaded module for', name, mod);
-      // If the module has a default export, return that, otherwise return the module itself
-      return mod?.default ?? mod;
-    });
+    // Check if the URL is from a local Vite dev server
+    if (name.startsWith('http://localhost:')) {
+      console.log('Loading app via native import (dev):', name);
+      return import(name).then(mod => {
+        console.log('Loaded module for', name, mod);
+        return mod?.default ?? mod;
+      });
+    } else {
+      console.log('Loading app via System.import (prod):', name);
+      return System.import(name).then(mod => {
+        console.log('Loaded module for', name, mod);
+        // If the module has a default export, return that, otherwise return the module itself
+        return mod?.default ?? mod;
+      });
+    }
   },
 });
 console.log('applications constructed', applications);
