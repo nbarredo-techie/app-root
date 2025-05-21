@@ -15,7 +15,8 @@ export default defineConfig({
       preserveEntrySignatures: 'strict',
       external: ['single-spa', 'single-spa-layout'] 
     },
-    outDir: 'dist' // Explicitly set or ensure it defaults to dist
+    outDir: 'dist', // Explicitly set or ensure it defaults to dist
+    minify: false // Disable minification for more readable output
   },
   optimizeDeps: {
     esbuildOptions: {
