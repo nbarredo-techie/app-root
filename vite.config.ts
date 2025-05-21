@@ -1,17 +1,7 @@
 import { defineConfig } from 'vite';
-import vitePluginSingleSpa  from 'vite-plugin-single-spa';
 
 export default defineConfig({
   plugins: [
-    vitePluginSingleSpa({
-      type: 'root',
-      importMaps:{
-        type: 'overridable-importmap', // Changed from 'systemjs-importmap'
-        build: 'src/importMap.json'
-      },
-      imo: '6.0.0', // import-map-overrides version
-      imoUi: 'full',
-    }),
   ],
   build: {
     target: 'esnext',

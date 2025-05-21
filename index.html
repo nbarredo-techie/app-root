@@ -3,11 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <title>Root App</title>
- 
-  <!-- vite-plugin-single-spa will inject the native import map (from src/importMap.json) 
-       and import-map-overrides script first in <head>. 
-       This native import map is for ESM dependencies of the root application 
-       and for the ESM microfrontends. -->
+
+  <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@18.3.1",
+        "react-dom": "https://esm.sh/react-dom@18.3.1",
+        "react-dom/client": "https://esm.sh/react-dom@18.3.1/client",
+        "single-spa": "https://esm.sh/single-spa@6.0.3",
+        "single-spa-layout": "https://esm.sh/single-spa-layout@3.0.0",
+        "shared-ui": "https://terrabostmanagestorage.blob.core.windows.net/$web/shared-ui/shared-ui.js",        
+        
+        "@mf/shell": "https://terrabostmanagestorage.blob.core.windows.net/$web/mf-shell/main.js"
+      }
+    }
+  </script>
+  <script type="module">
+    import 'https://cdn.jsdelivr.net/npm/import-map-overrides@6.0.0/+esm';
+  </script>
+   
  
  
 </head>
