@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Root Config</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: localhost:*; script-src 'unsafe-inline' 'unsafe-eval' https: localhost:*; connect-src https: localhost:* ws://localhost:*; style-src 'unsafe-inline' https:; object-src 'none';">
+  <meta name="importmap-type" use-injector />
+  <!-- If you wish to turn off import-map-overrides for specific environments (prod), uncomment the line below -->
+  <!-- More info at https://github.com/single-spa/import-map-overrides/blob/main/docs/configuration.md#domain-list -->
+  <!-- <meta name="import-map-overrides-domains" content="denylist:prod.example.com" /> -->
+
+  <!-- Shared dependencies go into this import map -->
+  <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@18.2.0",
+        "react-dom": "https://esm.sh/react-dom@18.2.0", 
+        "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@6.0.3/+esm",
+        "single-spa-layout": "https://cdn.jsdelivr.net/npm/single-spa-layout@2.0.0/+esm",
+        "shared-ui": "https://terrabostmanagestorage.blob.core.windows.net/$web/shared-ui/shared-ui.js",        
+        "@mf/shell": "https://terrabostmanagestorage.blob.core.windows.net/$web/mf-shell/mf-shell.js"
+      }
+    }
+  </script> 
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@5.1.1/dist/import-map-overrides.js"></script> 
+</head>
+<body>
+  <noscript>
+    You need to enable JavaScript to run this app.
+  </noscript>
+  <main></main>
+  <script> 
+      import('@terraboost/root-config'); 
+  </script>
+  <import-map-overrides-full ></import-map-overrides-full>
+</body>
+</html>

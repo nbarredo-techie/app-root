@@ -1,12 +1,10 @@
 {
+  "extends": "ts-config-single-spa",
+  "files": ["src/terraboost-root-config.ts"],
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "moduleResolution": "bundler"
+    "declarationDir": "dist",
+    "esModuleInterop": true
   },
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
+  "include": ["src/**/*"],
+  "exclude": ["src/**/*.test*"]
 }
