@@ -18,8 +18,8 @@ importers:
         specifier: ^1.16.2
         version: 1.18.8
       single-spa:
-        specifier: ^5.9.3
-        version: 5.9.5
+        specifier: ^6.0.3
+        version: 6.0.3
       single-spa-layout:
         specifier: ^3.0.0
         version: 3.0.0
@@ -3082,9 +3082,6 @@ packages:
   single-spa-layout@3.0.0:
     resolution: {integrity: sha512-o8A0Zw4ms5viUlzk2Z25e69I+2Mu8C+PfMys+U/1KiWwnEXdbLEIR9M1RtloacXpFf96zx1EDaGMBs9RXCG2hw==}
     engines: {node: '>=12'}
-
-  single-spa@5.9.5:
-    resolution: {integrity: sha512-9SQdmsyz4HSP+3gs6PJzhkaMEg+6zTlu9oxIghnwUX3eq+ajq4ft5egl0iyR55LAmO/UwvU8NgIWs/ZyQMa6dw==}
 
   single-spa@6.0.3:
     resolution: {integrity: sha512-pXlwHXHhs3hx/MnGQHBLdFCVAN2rlm9TLBKazbDMyZ25QRxoen2vlUZ47MyXKa9K8Gd5UZs/gkuQad4TGbViwg==}
@@ -7211,8 +7208,6 @@ snapshots:
       merge2: 1.4.1
       parse5: 6.0.1
       single-spa: 6.0.3
-
-  single-spa@5.9.5: {}
 
   single-spa@6.0.3: {}
 
