@@ -2,23 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="importmap-type" content="systemjs-importmap" />
+  <!-- Changed to standard importmap type -->
+  <meta name="importmap-type" content="importmap" />
 
   <title>Root App</title>
 
-  <!-- SystemJS -->
-  <script src="https://cdn.jsdelivr.net/npm/systemjs@6.13.0/dist/system.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/systemjs@6.13.0/dist/extras/amd.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/systemjs@6.13.0/dist/extras/named-exports.min.js"></script>
-
   <!-- Inline Import Map -->
-  <script type="systemjs-importmap">
+  <script type="importmap">
     {
       "imports": {
-        "react": "https://unpkg.com/react@18/umd/react.development.js",
-        "react-dom": "https://unpkg.com/react-dom@18/umd/react-dom.development.js", 
-        "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@6.0.3/lib/es2015/system/single-spa.min.js",
-        "single-spa-layout": "https://cdn.jsdelivr.net/npm/single-spa-layout/dist/system/single-spa-layout.min.js",
+        "react": "https://esm.sh/react@18.2.0",
+        "react-dom": "https://esm.sh/react-dom@18.2.0", 
+        "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@6.0.3/+esm",
+        "single-spa-layout": "https://cdn.jsdelivr.net/npm/single-spa-layout@2.0.0/+esm",
         "shared-ui": "https://terrabostmanagestorage.blob.core.windows.net/$web/shared-ui/shared-ui.js",        
         "@mf/shell": "https://terrabostmanagestorage.blob.core.windows.net/$web/mf-shell/mf-shell.js"
       }
@@ -27,15 +23,16 @@
   
   <script
   type="text/javascript"
-  src="https://cdn.jsdelivr.net/npm/import-map-overrides/dist/import-map-overrides.js"
+  src="https://cdn.jsdelivr.net/npm/import-map-overrides@2.4.0/dist/import-map-overrides.js"
 ></script>
+<!-- Note: Updated import-map-overrides to a specific version known to work well with both SystemJS and native import maps -->
 
 </head>
 <body> 
   <import-map-overrides-full></import-map-overrides-full>
-  <script>
-    System.import('./bootstrap.js')
-      .catch(function(err) { console.error("Error loading bootstrap.js", err); });
-  </script>
+  <!-- 
+    Webpack's HtmlWebpackPlugin will inject the script tag for bootstrap.js here.
+    The System.import('./bootstrap.js') call has been removed. 
+  -->
 </body>
 </html>

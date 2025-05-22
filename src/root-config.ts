@@ -9,51 +9,18 @@ const routes = constructRoutes(layoutDefinition);
 console.log('routes constructed', routes);
 const applications = constructApplications({
   routes,
-  loadApp: ({ name }) => {
-    console.log('Attempting to load app with specifier:', name);
-    let resolvedUrl;
+  loadApp: async ({ name }) => { // Changed to async function
+    console.log('Attempting to load app with specifier via native import:', name);
+    // We rely on the browser's import map to resolve the 'name' specifier or use it if it's a full URL.
     try {
-      resolvedUrl = System.resolve(name); // Resolve the specifier to a URL
-    } catch (e) {
-      console.error(`Could not resolve import map for specifier: ${name}`, e);
-      return Promise.reject(e); // Fail if resolution doesn't work
-    }
-    console.log(`Resolved URL for ${name}: ${resolvedUrl}`);
-
-    // Check if the RESOLVED URL is from a local Vite dev server
-    if (resolvedUrl && resolvedUrl.startsWith('http://localhost:')) {
-      console.log('Loading app via native import (dev):', resolvedUrl);
-
-      // Add diagnostic logging for the MFE response
-      return fetch(resolvedUrl)
-        .then(res => {
-          console.log(`MFE Response for ${name} (${resolvedUrl}):`);
-          console.log(`  Status: ${res.status}`);
-          console.log('  Headers:');
-          res.headers.forEach((value, key) => console.log(`    ${key}: ${value}`));
-          if (!res.ok) {
-            return res.text().then(text => {
-              console.error(`  Error fetching MFE: ${res.statusText}`, text);
-              throw new Error(`Failed to fetch MFE ${name}: ${res.statusText}`);
-            });
-          }
-          return res.text();
-        })
-        .then(text => {
-          console.log(`  First 500 chars of MFE text for ${name}:`, text.substring(0, 500));
-          // Now attempt the import
-          return import(/* @vite-ignore */ resolvedUrl).then(mod => { // Use the resolved URL for native dynamic import
-            console.log('Loaded module for', name, 'from', resolvedUrl, mod);
-            return mod?.default ?? mod;
-          });
-        });
-    } else {
-      console.log('Loading app via System.import (prod):', name); // Use the original specifier for System.import
-      return System.import(name).then(mod => {
-        console.log('Loaded module for', name, 'from resolved URL', resolvedUrl, mod);
-        // If the module has a default export, return that, otherwise return the module itself
-        return mod?.default ?? mod;
-      });
+      // All MFE loading will now use native dynamic import.
+      // Ensure all MFEs (dev and prod) are ESM and their URLs in the import map point to ESM bundles.
+      const mod = await import(name); // Webpack should handle any necessary processing for dynamic imports
+      console.log('Loaded module for', name, mod);
+      return mod?.default ?? mod; // Return default export if it exists, otherwise the module itself
+    } catch (error) {
+      console.error(`Error loading MFE ${name} via native import:`, error);
+      throw error; // Re-throw the error to allow single-spa to handle it
     }
   },
 });
