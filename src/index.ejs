@@ -12,31 +12,51 @@
   <!-- <meta name="import-map-overrides-domains" content="denylist:prod.example.com" /> -->
 
   <!-- Shared dependencies go into this import map -->
-  <script type="importmap">
+  <script type="injector-importmap">
     {
       "imports": {
         "react": "https://esm.sh/react@18.2.0",
         "react-dom": "https://esm.sh/react-dom@18.2.0", 
         "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@6.0.3/+esm",
-        "single-spa-layout": "https://cdn.jsdelivr.net/npm/single-spa-layout@2.0.0/+esm",
-        "shared-ui": "https://terrabostmanagestorage.blob.core.windows.net/$web/shared-ui/shared-ui.js",        
-        "@mf/shell": "https://terrabostmanagestorage.blob.core.windows.net/$web/mf-shell/mf-shell.js"
+        "single-spa-layout": "https://cdn.jsdelivr.net/npm/single-spa-layout@3.0.0/+esm",
+        "shared-ui": "https://terrabostmanagestorage.blob.core.windows.net/$web/shared-ui/terraboost-shared-ui.js" 
       }
     }
-  </script> 
+  </script>
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/single-spa@6.0.3/+esm" as="module">
 
-  
+  <script type="injector-importmap">
+    {
+      "imports": {
+        "@terraboost/root-config":  "/terraboost-root-config.js"
+      }
+    }
+  </script>
 
-  <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@5.1.1/dist/import-map-overrides.js"></script> 
+  <!-- Add your organization's prod import map URL to this script's src  -->
+  <!-- <script type="injector-importmap" src="/importmap.json"></script> -->
+
+  <script type="injector-importmap">
+    {
+      "imports": { 
+        "@mf/shell": "https://terrabostmanagestorage.blob.core.windows.net/$web/mf-shell/terraboost-mf-shell.js"
+      }
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@5.1.1/dist/import-map-overrides.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@single-spa/import-map-injector@2.0.1/lib/import-map-injector.js"></script>
 </head>
 <body>
   <noscript>
     You need to enable JavaScript to run this app.
   </noscript>
   <main></main>
-  <script> 
-      import('@terraboost/root-config'); 
+  <script>
+    window.importMapInjector.initPromise.then(() => {
+      import('@terraboost/root-config');
+    });
   </script>
-  <import-map-overrides-full ></import-map-overrides-full>
+  <import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>
 </body>
 </html>
