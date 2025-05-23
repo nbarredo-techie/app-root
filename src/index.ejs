@@ -19,31 +19,16 @@
         "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
         "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@6.0.3/+esm",
         "single-spa-layout": "https://cdn.jsdelivr.net/npm/single-spa-layout@3.0.0/+esm",
-        "shared-ui": "https://terrabostmanagestorage.blob.core.windows.net/$web/shared-ui/terraboost-shared-ui.js" 
+        "@terraboost/root-config": "<%= isLocal ? '/terraboost-root-config.js' : './terraboost-root-config.js' %>"
+
+        "shared-ui": "https://terrabostmanagestorage.blob.core.windows.net/$web/shared-ui/terraboost-shared-ui.js",
+        "@mf/shell": "https://terrabostmanagestorage.blob.core.windows.net/$web/mf-shell/terraboost-mf-shell.js"
+ 
       }
     }
   </script>
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/single-spa@6.0.3/+esm" as="module">
-
-  <script type="injector-importmap">
-    {
-      "imports": {
-        "@terraboost/root-config": "<%= isLocal ? '/terraboost-root-config.js' : './terraboost-root-config.js' %>"
-      }
-    }
-  </script>
-
-  <!-- Add your organization's prod import map URL to this script's src  -->
-  <!-- <script type="injector-importmap" src="/importmap.json"></script> -->
-
-  <script type="injector-importmap">
-    {
-      "imports": { 
-        "@mf/shell": "https://terrabostmanagestorage.blob.core.windows.net/$web/mf-shell/terraboost-mf-shell.js"
-      }
-    }
-  </script>
-
+ 
   <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@5.1.1/dist/import-map-overrides.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@single-spa/import-map-injector@2.0.1/lib/import-map-injector.js"></script>
 </head>
