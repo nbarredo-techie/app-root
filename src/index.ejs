@@ -19,12 +19,16 @@
         "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
         "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@6.0.3/+esm",
         "single-spa-layout": "https://cdn.jsdelivr.net/npm/single-spa-layout@3.0.0/+esm",
-        "@terraboost/root-config": "<%= isLocal ? '/terraboost-root-config.js' : './terraboost-root-config.js' %>",
 
         "shared-ui": "https://terrabostmanagestorage.blob.core.windows.net/$web/shared-ui/terraboost-shared-ui.js",
         "@mf/shell": "https://terrabostmanagestorage.blob.core.windows.net/$web/mf-shell/terraboost-mf-shell.js"
  
-      }
+      },
+      "scopes": {
+        "https://white-pond-0db5ebd10.6.azurestaticapps.net": {
+          "react": "https://esm.sh/react@19.0.0",
+          "react-dom": "https://esm.sh/react-dom@19.0.0"
+        }
     }
   </script>
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/single-spa@6.0.3/+esm" as="module">
