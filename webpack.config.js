@@ -26,7 +26,6 @@ module.exports = (webpackConfigEnv, argv) => {
           "./react-dom/client": "react-dom/client",
         },
         shared: {
-          ...deps,
           react: {
             singleton: true,
             requiredVersion: deps.react,
