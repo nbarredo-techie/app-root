@@ -14,9 +14,9 @@
   <script type="injector-importmap">
     {
       "imports": {
-        "react": "https://esm.sh/react@19.0.0",
-        "react-dom": "https://esm.sh/react-dom@19.0.0",
-        "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+        "react": "root_config/react",
+        "react-dom": "root_config/react-dom",
+        "react-dom/client": "root_config/react-dom/client",
         "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@6.0.3/+esm",
         "single-spa-layout": "https://cdn.jsdelivr.net/npm/single-spa-layout@3.0.0/+esm",
         "@terraboost/root-config": "<%= isLocal ? '/terraboost-root-config.js' : './terraboost-root-config.js' %>",
@@ -26,8 +26,8 @@
       },
       "scopes": {
         "https://white-pond-0db5ebd10.6.azurestaticapps.net": {
-          "react": "https://esm.sh/react@19.0.0",
-          "react-dom": "https://esm.sh/react-dom@19.0.0"
+          "react": "root_config/react",
+          "react-dom": "root_config/react-dom"
         }
     }
   }
