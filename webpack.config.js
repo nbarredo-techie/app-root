@@ -30,14 +30,17 @@ module.exports = (webpackConfigEnv, argv) => {
           react: {
             singleton: true,
             requiredVersion: deps.react,
+            eager: true,
           },
           "react-dom": {
             singleton: true,
             requiredVersion: deps["react-dom"],
+            eager: true,
           },
           "react-dom/client": {
             singleton: true,
             requiredVersion: deps["react-dom"], // Assumes react-dom version covers client
+            eager: true,
           },
         },
       }),
