@@ -14,11 +14,12 @@
   <script type="injector-importmap">
     {
       "imports": {
-        "react": "https://esm.sh/react@19.0.0",
-        "react-dom": "https://esm.sh/react-dom@19.0.0",
-        "react/jsx-runtime": "https://esm.sh/react@19.0.0/jsx-runtime",
-        "react/jsx-dev-runtime": "https://esm.sh/react@19.0.0/jsx-dev-runtime",
-        "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+        "react": "https://cdn.jsdelivr.net/npm/react@19.0.0/+esm",
+        "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@19.0.0/+esm",
+        "react/jsx-runtime": "https://cdn.jsdelivr.net/npm/react@19.0.0/jsx-runtime.js/+esm",
+        "react/jsx-dev-runtime": "https://cdn.jsdelivr.net/npm/react@19.0.0/jsx-dev-runtime.js/+esm",
+        "react-dom/client": "https://cdn.jsdelivr.net/npm/react-dom@19.0.0/client.js/+esm",
+       
         "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@6.0.3/+esm",
         "single-spa-layout": "https://cdn.jsdelivr.net/npm/single-spa-layout@3.0.0/+esm",
         "@terraboost/root-config": "<%= isLocal ? '/terraboost-root-config.js' : './terraboost-root-config.js' %>",
