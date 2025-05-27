@@ -17,13 +17,19 @@
 
   -->
 
-  <main>
-    <application name="@mf/shell"></application>
-    <route default>
-      <application name="@mf/dashboard"></application>
-    </route>
-    <route path="kiosks">
-      <application name="@mf/kiosks"></application>
-    </route>
+  <main class="flex flex-col h-screen place-content-center">
+    <div>
+      <div class="fixed top-0 left-0 right-0 z-10">
+        <application name="@mf/shell"></application>
+      </div>
+      <div id="container" class="flex flex-col h-screen top-5 left-5">
+        <route default>
+          <application name="@mf/dashboard"></application>
+        </route>
+        <route path="kiosks">
+          <application name="@mf/kiosks"></application>
+        </route>
+      </div>
+    </div>
   </main>
 </single-spa-router>
