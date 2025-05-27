@@ -19,6 +19,11 @@
 
   <main>
     <application name="@mf/shell"></application>
-    <route default> </route>
+    <route default>
+      <application name="@mf/dashboard"></application>
+    </route>
+    <route path="settings">
+      <application name="@mf/dashboard"></application>
+    </route>
   </main>
 </single-spa-router>

@@ -21,10 +21,12 @@
         "react-dom/client": "https://esm.sh/react-dom@19.0.0/client.js?dev",
         "single-spa": "https://esm.sh/single-spa@6.0.3?dev",
         "single-spa-layout": "https://esm.sh/single-spa-layout@3.0.0?dev",
+
         "@terraboost/root-config": "<%= isLocal ? '/terraboost-root-config.js' : './terraboost-root-config.js' %>",
-        "shared-ui": "https://terrabostmanagestorage.blob.core.windows.net/$web/shared-ui/terraboost-shared-ui.js",
-        "@mf/shell": "https://terrabostmanagestorage.blob.core.windows.net/$web/mf-shell/terraboost-mf-shell.js"
-      }  
+        "@shared-ui": "https://terrabostmanagestorage.blob.core.windows.net/$web/shared-ui/terraboost-shared-ui.js",
+        "@mf/shell": "https://terrabostmanagestorage.blob.core.windows.net/$web/mf-shell/terraboost-mf-shell.js",
+        "@mf/dashboard": "https://terrabostmanagestorage.blob.core.windows.net/$web/mf-dashboard/terraboost-mf-dashboard.js"
+      }
     }  </script>
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/single-spa@6.0.3/+esm" as="script">
  
